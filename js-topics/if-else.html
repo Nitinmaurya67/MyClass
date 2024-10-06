@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>if-else </h1><br>
+    <p>The <code>if...else</code> statement is used to execute a block of code based on a specified condition. If the
+        condition is true, the block of code inside the <code>if</code> statement is executed. Otherwise, the block of
+        code inside the <code>else</code> statement is executed.</p>
+
+    <h3>1. Basic if...else Statement</h3>
+    <p>Here is an example of a basic <code>if...else</code> statement:</p>
+    <pre><code class="language-javascript">let isRaining = true;
+
+if (isRaining) {
+    console.log("Take an umbrella!");
+} else {
+    console.log("No need for an umbrella.");
+}</code></pre>
+
+    <h3>2. else if Statement</h3>
+    <p>The <code>else if</code> statement is used to specify multiple conditions:</p>
+    <pre><code class="language-javascript">let temperature = 30;
+
+if (temperature > 30) {
+    console.log("It's hot outside!");
+} else if (temperature < 15) {
+    console.log("It's cold outside!");
+} else {
+    console.log("The weather is moderate.");
+}</code></pre>
+
+    <h3>3. Nested if...else Statement</h3>
+    <p>You can also nest <code>if...else</code> statements within each other:</p>
+    <pre><code class="language-javascript">let age = 20;
+let hasPermission = true;
+
+if (age >= 18) {
+    if (hasPermission) {
+        console.log("You can enter the club.");
+    } else {
+        console.log("You need permission to enter the club.");
+    }
+} else {
+    console.log("You are too young to enter the club.");
+}</code></pre>
+
+    <h3>4. Ternary Operator</h3>
+    <p>The ternary operator is a shorthand for the <code>if...else</code> statement:</p>
+    <pre><code class="language-javascript">let isMember = true;
+let discount = isMember ? 10 : 0;
+console.log(`You get a ${discount}% discount.`); // Outputs: You get a 10% discount.</code></pre>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Errors</h1><br>
+    <p>Errors in JavaScript are objects that provide information about the type of error, the statement that caused the
+        error, and the stack trace when the error occurred. JavaScript also allows programmers to create custom errors
+        to provide extra information when debugging issues.</p>
+
+    <h2>Types of Errors</h2>
+    <ul>
+        <li><strong>Syntax Error</strong>: Occurs when there is a mistake in the syntax of the code.</li>
+        <li><strong>Reference Error</strong>: Occurs when a non-existent variable is referenced.</li>
+        <li><strong>Type Error</strong>: Occurs when a value is not of the expected type.</li>
+        <li><strong>Range Error</strong>: Occurs when a value is not within the set or range of allowed values.</li>
+        <li><strong>URI Error</strong>: Occurs when there is an error in encoding or decoding a URI.</li>
+        <li><strong>Eval Error</strong>: Occurs when the <code>eval()</code> function is used incorrectly.</li>
+        <li><strong>Internal Error</strong>: Occurs when an internal error in the JavaScript engine is thrown.</li>
+    </ul>
+
+    <h2>Handling Errors</h2>
+    <p>JavaScript provides several mechanisms to handle errors:</p>
+    <h3>Try...Catch</h3>
+    <p>The <code>try...catch</code> statement allows you to test a block of code for errors and handle them gracefully.
+    </p>
+    <pre><code class="language-javascript">try {
+    // Code that may throw an error
+    let result = someFunction();
+} catch (error) {
+    // Code to handle the error
+    console.error(error.message);
+}</code></pre>
+
+    <h3>Throw</h3>
+    <p>The <code>throw</code> statement allows you to create a custom error.</p>
+    <pre><code class="language-javascript">function checkNumber(num) {
+    if (num > 10) {
+        throw new Error("Number is too large");
+    }
+    return num;
+}
+
+try {
+    checkNumber(15);
+} catch (error) {
+    console.error(error.message); // Number is too large
+}</code></pre>
+
+    <h3>Finally</h3>
+    <p>The <code>finally</code> block lets you execute code after the <code>try</code> and <code>catch</code> blocks,
+        regardless of the result.</p>
+    <pre><code class="language-javascript">try {
+    // Code that may throw an error
+    let result = someFunction();
+} catch (error) {
+    // Code to handle the error
+    console.error(error.message);
+} finally {
+    // Code to be executed regardless of the result
+    console.log("Execution completed");
+}</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_errors.asp">W3Schools</a> and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors">MDN Web Docs</a>.</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

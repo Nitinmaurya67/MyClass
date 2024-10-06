@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Promises </h1><br>
+    <p>A Promise in JavaScript is an object representing the eventual completion or failure of an asynchronous
+        operation. Promises provide a cleaner, more flexible way to handle asynchronous operations compared to
+        callbacks.</p>
+
+    <h2>Creating a Promise</h2>
+    <p>You can create a promise using the <code>Promise</code> constructor:</p>
+    <pre><code class="language-javascript">let myPromise = new Promise(function(resolve, reject) {
+    // Producing code (may take some time)
+    let success = true; // Simulating success or failure
+    if (success) {
+        resolve("Operation was successful!");
+    } else {
+        reject("Operation failed.");
+    }
+});</code></pre>
+
+    <h2>Consuming a Promise</h2>
+    <p>You can consume a promise using the <code>then</code> and <code>catch</code> methods:</p>
+    <pre><code class="language-javascript">myPromise.then(function(value) {
+    console.log(value); // "Operation was successful!"
+}).catch(function(error) {
+    console.log(error); // "Operation failed."
+});</code></pre>
+
+    <h2>Chaining Promises</h2>
+    <p>Promises can be chained to handle multiple asynchronous operations in sequence:</p>
+    <pre><code class="language-javascript">let promise = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        resolve(10);
+    }, 1000);
+});
+
+promise.then(function(value) {
+    console.log(value); // 10
+    return value * 2;
+}).then(function(value) {
+    console.log(value); // 20
+    return value * 3;
+}).then(function(value) {
+    console.log(value); // 60
+}).catch(function(error) {
+    console.log(error);
+});</code></pre>
+
+    <h2>Promise States</h2>
+    <p>A promise can be in one of three states:</p>
+    <ul>
+        <li><strong>Pending:</strong> Initial state, neither fulfilled nor rejected.</li>
+        <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
+        <li><strong>Rejected:</strong> The operation failed.</li>
+    </ul>
+
+    <h2>Example with Child Elements</h2>
+    <p>Here is an example demonstrating how to access and manipulate child elements:</p>
+    <pre><code class="language-javascript">// HTML
+// <div id="parent">
+//     <div class="child">Child 1</div>
+//     <div class="child">Child 2</div>
+// </div>
+
+let parent = document.getElementById('parent');
+let children = parent.getElementsByClassName('child');
+
+for (let i = 0; i < children.length; i++) {
+    children[i].style.color = 'blue';
+}</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_promise.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN Web
+            Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

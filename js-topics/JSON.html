@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>JSON </h1><br>
+    <p>JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and
+        write, and easy for machines to parse and generate. It is commonly used for transmitting data in web
+        applications.</p>
+
+    <h2>JSON Syntax</h2>
+    <p>JSON syntax is derived from JavaScript object notation syntax:</p>
+    <ul>
+        <li>Data is in name/value pairs.</li>
+        <li>Data is separated by commas.</li>
+        <li>Curly braces hold objects.</li>
+        <li>Square brackets hold arrays.</li>
+    </ul>
+
+    <h2>Example</h2>
+    <p>Here is an example of a JSON object:</p>
+    <pre><code class="language-javascript">{
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 30,
+    "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "212-555-1234" },
+        { "type": "office", "number": "646-555-4567" }
+    ]
+}</code></pre>
+
+    <h2>Converting JSON to JavaScript Object</h2>
+    <p>You can convert a JSON string into a JavaScript object using the <code>JSON.parse()</code> method:</p>
+    <pre><code class="language-javascript">let jsonString = '{"firstName":"John","lastName":"Doe","age":30}';
+let jsonObject = JSON.parse(jsonString);
+console.log(jsonObject.firstName); // John</code></pre>
+
+    <h2>Converting JavaScript Object to JSON</h2>
+    <p>You can convert a JavaScript object into a JSON string using the <code>JSON.stringify()</code> method:</p>
+    <pre><code class="language-javascript">let jsObject = { firstName: "John", lastName: "Doe", age: 30 };
+let jsonString = JSON.stringify(jsObject);
+console.log(jsonString); // {"firstName":"John","lastName":"Doe","age":30}</code></pre>
+
+    <h2>Use Cases</h2>
+    <p>JSON is commonly used for:</p>
+    <ul>
+        <li>Exchanging data between a web server and a client.</li>
+        <li>Storing configuration settings.</li>
+        <li>Transmitting data between different parts of an application.</li>
+    </ul>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/whatis/whatis_json.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">MDN Web Docs</a>[^2^][3].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

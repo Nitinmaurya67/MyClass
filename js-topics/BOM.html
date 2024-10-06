@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>BOM (Browser Object Model)</h1><br>
+    <p>The Browser Object Model (BOM) allows JavaScript to interact with the browser. Here are some common BOM objects
+        and methods:</p>
+
+    <h3>1. Window Object</h3>
+    <p>The <code>window</code> object represents the browser window and provides methods to control it:</p>
+    <pre><code class="language-javascript">console.log(window.innerWidth); // Width of the window's content area
+console.log(window.innerHeight); // Height of the window's content area
+
+// Open a new window
+const newWindow = window.open('https://www.example.com', '_blank', 'width=600,height=400');
+
+// Close the new window
+newWindow.close();
+
+// Display an alert
+window.alert('Hello, world!');</code></pre>
+
+    <h3>2. Navigator Object</h3>
+    <p>The <code>navigator</code> object contains information about the browser and the user's environment:</p>
+    <pre><code class="language-javascript">console.log(navigator.userAgent); // User agent string
+console.log(navigator.language); // Browser language
+console.log(navigator.platform); // Operating system
+
+// Check if cookies are enabled
+if (navigator.cookieEnabled) {
+    console.log('Cookies are enabled');
+} else {
+    console.log('Cookies are disabled');
+}</code></pre>
+
+    <h3>3. Location Object</h3>
+    <p>The <code>location</code> object contains information about the current URL and provides methods to manipulate
+        it:</p>
+    <pre><code class="language-javascript">console.log(location.href); // Full URL
+console.log(location.hostname); // Domain name
+console.log(location.pathname); // Path of the URL
+console.log(location.protocol); // Protocol (http: or https:)
+
+location.href = 'https://www.example.com'; // Redirect to a new URL
+location.reload(); // Reload the current page</code></pre>
+
+    <h3>4. History Object</h3>
+    <p>The <code>history</code> object allows manipulation of the browser session history:</p>
+    <pre><code class="language-javascript">history.back(); // Go back to the previous page
+history.forward(); // Go forward to the next page
+history.go(-2); // Go back two pages
+
+// Add a new entry to the history stack
+history.pushState({ page: 1 }, 'title 1', '?page=1');
+
+// Replace the current entry in the history stack
+history.replaceState({ page: 2 }, 'title 2', '?page=2');</code></pre>
+
+    <h3>5. Screen Object</h3>
+    <p>The <code>screen</code> object contains information about the user's screen:</p>
+    <pre><code class="language-javascript">console.log(screen.width); // Screen width
+console.log(screen.height); // Screen height
+console.log(screen.availWidth); // Available screen width
+console.log(screen.availHeight); // Available screen height</code></pre>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

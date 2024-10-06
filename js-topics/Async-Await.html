@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Async/Await </h1><br>
+    <p>The <code>async</code> and <code>await</code> keywords in JavaScript provide a way to work with asynchronous code
+        in a more readable and manageable manner. They are built on top of Promises and make asynchronous code look more
+        like synchronous code.</p>
+
+    <h2>Async Functions</h2>
+    <p>An <code>async</code> function is a function that returns a Promise. The <code>async</code> keyword is placed
+        before a function declaration to define an asynchronous function:</p>
+    <pre><code class="language-javascript">async function myFunction() {
+    return "Hello, World!";
+}
+
+myFunction().then(value => console.log(value)); // Outputs: Hello, World!</code></pre>
+
+    <h2>Await Keyword</h2>
+    <p>The <code>await</code> keyword can only be used inside an <code>async</code> function. It makes JavaScript wait
+        until the Promise settles and returns its result:</p>
+    <pre><code class="language-javascript">async function fetchData() {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Data fetched"), 2000);
+    });
+
+    let result = await promise; // Wait until the promise resolves
+    console.log(result); // Outputs: Data fetched
+}
+
+fetchData();</code></pre>
+
+    <h2>Error Handling</h2>
+    <p>You can handle errors in <code>async</code> functions using <code>try...catch</code> blocks:</p>
+    <pre><code class="language-javascript">async function fetchData() {
+    try {
+        let response = await fetch('https://api.example.com/data');
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+fetchData();</code></pre>
+
+    <h2>Example with Child Elements</h2>
+    <p>Here is an example demonstrating how to access and manipulate child elements:</p>
+    <pre><code class="language-javascript">// HTML
+// &lt;div id="parent"&gt;
+//      &lt;div class="child"&gt;Child 1&lt;/div&gt;
+//      &lt;div class="child"&gt;Child 2&lt;/div&gt;
+// &lt;/div&gt
+
+let parent = document.getElementById('parent');
+let children = parent.getElementsByClassName('child');
+
+for (let i = 0; i < children.length; i++) {
+    children[i].style.color = 'blue';
+}</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_async.asp">W3Schools</a>[^1^][2] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">MDN Web
+            Docs</a>[^2^][1].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

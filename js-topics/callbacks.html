@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Callbacks </h1><br>
+    <p>A callback is a function passed into another function as an argument, which is then invoked inside the outer
+        function to complete some kind of routine or action. Callbacks are used to handle asynchronous operations in
+        JavaScript.</p>
+
+    <h2>Synchronous Callbacks</h2>
+    <p>Synchronous callbacks are executed immediately within the function that receives them:</p>
+    <pre><code class="language-javascript">function greet(name, callback) {
+    console.log("Hello, " + name);
+    callback();
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}
+
+greet("Alice", sayGoodbye); // Outputs: Hello, Alice
+                            //          Goodbye!</code></pre>
+
+    <h2>Asynchronous Callbacks</h2>
+    <p>Asynchronous callbacks are often used to continue code execution after an asynchronous operation has completed:
+    </p>
+    <pre><code class="language-javascript">function fetchData(callback) {
+    setTimeout(function() {
+        console.log("Data fetched");
+        callback();
+    }, 2000);
+}
+
+function processData() {
+    console.log("Processing data");
+}
+
+fetchData(processData); // Outputs: Data fetched (after 2 seconds)
+//          Processing data</code></pre>
+
+    <h2>Callback Hell</h2>
+    <p>Callback hell refers to the situation where callbacks are nested within other callbacks several levels deep,
+        making the code difficult to read and maintain:</p>
+    <pre><code class="language-javascript">doSomething(function(result) {
+    doSomethingElse(result, function(newResult) {
+        doAnotherThing(newResult, function(finalResult) {
+            console.log(finalResult);
+        });
+    });
+});</code></pre>
+
+    <h2>Example with Child Elements</h2>
+    <p>Here is an example demonstrating how to access and manipulate child elements:</p>
+    <pre><code class="language-javascript">// HTML
+// <div id="parent">
+//     <div class="child">Child 1</div>
+//     <div class="child">Child 2</div>
+// </div>
+
+let parent = document.getElementById('parent');
+let children = parent.getElementsByClassName('child');
+
+for (let i = 0; i < children.length; i++) {
+    children[i].style.color = 'blue';
+}</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_callback.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Glossary/Callback_function">MDN Web Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

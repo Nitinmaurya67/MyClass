@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Form Handling </h1><br>
+    <p>Handling forms in JavaScript involves accessing form elements, getting and setting their values, validating input, and managing form submission. Here’s how you can work with forms using the HTML DOM.</p>
+
+    <h2>HTML Form Example</h2>
+    <p>Here is a simple HTML form:</p>
+    <pre><code class="language-html">&lt;form id=&quot;myForm&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required&gt;
+    &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;
+    &lt;label for=&quot;message&quot;&gt;Message:&lt;/label&gt;
+    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; required&gt;&lt;/textarea&gt;
+    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+    <h2>Accessing Form Elements</h2>
+    <p>You can access form elements using various methods:</p>
+    <pre><code class="language-javascript">// By ID
+let form = document.getElementById('myForm');
+let nameInput = document.getElementById('name');
+let emailInput = document.getElementById('email');
+let messageInput = document.getElementById('message');
+
+// By querySelector
+let form = document.querySelector('#myForm');
+let nameInput = form.querySelector('#name');
+let emailInput = form.querySelector('#email');
+let messageInput = form.querySelector('#message');</code></pre>
+
+    <h2>Getting and Setting Form Values</h2>
+    <p>Once you have access to the form elements, you can get and set their values:</p>
+    <pre><code class="language-javascript">// Getting values
+let name = nameInput.value;
+let email = emailInput.value;
+let message = messageInput.value;
+
+// Setting values
+nameInput.value = 'John Doe';
+emailInput.value = 'john@example.com';
+messageInput.value = 'Hello, world!';</code></pre>
+
+    <h2>Form Validation</h2>
+    <p>Form validation is crucial for ensuring that the user inputs the correct data. Here’s a simple validation function:</p>
+    <pre><code class="language-javascript">function validateForm() {
+    if (nameInput.value === '' || emailInput.value === '' || messageInput.value === '') {
+        alert('All fields are required!');
+        return false;
+    }
+    return true;
+}</code></pre>
+
+    <h2>Handling Form Submission</h2>
+    <p>You can handle form submission by adding an event listener to the form:</p>
+    <pre><code class="language-javascript">form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    if (validateForm()) {
+        // Process form data
+        console.log('Form submitted successfully!');
+    }
+});</code></pre>
+
+    <h2>Example with Child Elements</h2>
+    <p>Here is an example demonstrating how to access and manipulate child elements:</p>
+    <pre><code class="language-javascript">// HTML
+// <div id="parent">
+//     <div class="child">Child 1</div>
+//     <div class="child">Child 2</div>
+// </div>
+
+let parent = document.getElementById('parent');
+let children = parent.getElementsByClassName('child');
+
+for (let i = 0; i < children.length; i++) {
+    children[i].style.color = 'blue';
+}</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a href="https://www.w3schools.com/js/js_htmldom_forms.asp">W3Schools</a>[^1^][1] and <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement">MDN Web Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Bitwise Operators </h1><br>
+    <p>Bitwise operators perform operations on the binary representations of numbers. They treat their operands as a
+        sequence of 32 bits (zeroes and ones) and return standard JavaScript numerical values.</p>
+
+    <h2>Types of Bitwise Operators</h2>
+    <ul>
+        <li><strong>AND (&)</strong>: Sets each bit to 1 if both bits are 1.</li>
+        <li><strong>OR (|)</strong>: Sets each bit to 1 if one of two bits is 1.</li>
+        <li><strong>XOR (^)</strong>: Sets each bit to 1 if only one of two bits is 1.</li>
+        <li><strong>NOT (~)</strong>: Inverts all the bits.</li>
+        <li><strong>Left Shift (<<)< /strong>: Shifts bits to the left, filling with zeros.</li>
+        <li><strong>Right Shift (>>)</strong>: Shifts bits to the right, preserving the sign bit.</li>
+        <li><strong>Zero-fill Right Shift (>>>)</strong>: Shifts bits to the right, filling with zeros.</li>
+    </ul>
+
+    <h2>Examples</h2>
+    <h3>AND (&)</h3>
+    <pre><code class="language-javascript">let a = 5; // 0101
+let b = 1; // 0001
+console.log(a & b); // 0001 (1)</code></pre>
+
+    <h3>OR (|)</h3>
+    <pre><code class="language-javascript">let a = 5; // 0101
+let b = 1; // 0001
+console.log(a | b); // 0101 (5)</code></pre>
+
+    <h3>XOR (^)</h3>
+    <pre><code class="language-javascript">let a = 5; // 0101
+let b = 1; // 0001
+console.log(a ^ b); // 0100 (4)</code></pre>
+
+    <h3>NOT (~)</h3>
+    <pre><code class="language-javascript">let a = 5; // 0101
+console.log(~a); // 1010 (-6)</code></pre>
+
+    <h3>Left Shift (<<)< /h3>
+            <pre><code class="language-javascript">let a = 5; // 0101
+console.log(a << 1); // 1010 (10)</code></pre>
+
+            <h3>Right Shift (>>)</h3>
+            <pre><code class="language-javascript">let a = 5; // 0101
+console.log(a >> 1); // 0010 (2)</code></pre>
+
+            <h3>Zero-fill Right Shift (>>>)</h3>
+            <pre><code class="language-javascript">let a = 5; // 0101
+console.log(a >>> 1); // 0010 (2)</code></pre>
+
+            <p>For more detailed information, you can check out resources like <a
+                    href="https://www.w3schools.com/js/js_bitwise.asp">W3Schools</a> and <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators">MDN
+                    Web Docs</a>.</p>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

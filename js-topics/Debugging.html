@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Debugging </h1><br>
+    <p>Debugging is the process of identifying and fixing errors or bugs in your code. JavaScript provides several tools
+        and techniques to help you debug your code effectively.</p>
+
+    <h2>Using console.log()</h2>
+    <p>The <code>console.log()</code> method is a simple way to output values to the browser's console, helping you
+        inspect the state of your program.</p>
+    <pre><code class="language-javascript">let a = 5;
+let b = 10;
+let sum = a + b;
+console.log(sum); // Outputs: 15</code></pre>
+
+    <h2>Using the debugger Keyword</h2>
+    <p>The <code>debugger</code> keyword stops the execution of JavaScript and calls the debugging function. This is
+        similar to setting a breakpoint in the code.</p>
+    <pre><code class="language-javascript">let x = 10;
+let y = 20;
+debugger; // Execution will stop here
+let z = x + y;
+console.log(z); // Outputs: 30</code></pre>
+
+    <h2>Setting Breakpoints</h2>
+    <p>You can set breakpoints in your code using the browser's developer tools. This allows you to pause execution and
+        inspect variables at specific points.</p>
+    <ul>
+        <li><strong>Chrome:</strong> Open Developer Tools (F12) and go to the "Sources" tab.</li>
+        <li><strong>Firefox:</strong> Open Developer Tools (F12) and go to the "Debugger" tab.</li>
+        <li><strong>Edge:</strong> Open Developer Tools (F12) and go to the "Debugger" tab.</li>
+        <li><strong>Safari:</strong> Enable the Develop menu in Preferences, then go to "Develop" > "Show JavaScript
+            Console".</li>
+    </ul>
+
+    <h2>Using Browser Developer Tools</h2>
+    <p>All modern browsers come with built-in developer tools that include a JavaScript debugger. These tools allow you
+        to set breakpoints, step through code, and inspect variables.</p>
+    <pre><code class="language-javascript">let a = 5;
+let b = 6;
+let c = a + b;
+console.log(c); // Outputs: 11</code></pre>
+
+    <h2>Example</h2>
+    <p>Here is an example demonstrating the use of <code>console.log()</code> and <code>debugger</code>:</p>
+    <pre><code class="language-javascript">let num1 = 10;
+let num2 = 20;
+console.log("Before debugger");
+debugger; // Execution will stop here
+let result = num1 + num2;
+console.log("After debugger: " + result); // Outputs: After debugger: 30</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_debugging.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Debugging">MDN Web Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

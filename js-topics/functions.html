@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+<body>
+    <h1>Functions</h1><br>
+    <p>Functions are one of the fundamental building blocks in JavaScript. A function is a reusable block of code designed to perform a particular task.</p>
+
+    <h3>1. Function Declaration</h3>
+    <p>A function declaration defines a function with the specified parameters.</p>
+    <pre><code class="language-javascript">function functionName(parameter) {
+    ---code--- 
+    return value;
+}
+functionName(x); //function call</code></pre>
+
+    <h3>2. Function Expression</h3>
+    <p>A function expression defines a function inside an expression, and can be anonymous.</p>
+    <pre><code class="language-javascript">const greet = function(name) {
+    return "Hello, " + name + "!";
+};
+console.log(greet("Bob")); // Outputs: Hello, Bob!</code></pre>
+
+    <h3>3. Arrow Functions</h3>
+    <p>Arrow functions provide a shorter syntax for writing functions.</p>
+    <pre><code class="language-javascript">const greet = (name) => {
+    return "Hello, " + name + "!";
+};
+console.log(greet("Charlie")); // Outputs: Hello, Charlie!</code></pre>
+
+    <h3>4. Function Parameters and Arguments</h3>
+    <p>Functions can take parameters and be called with arguments.</p>
+    <pre><code class="language-javascript">function add(a, b) {
+    return a + b;
+}
+console.log(add(2, 3)); // Outputs: 5</code></pre>
+
+    <h3>5. Default Parameters</h3>
+    <p>Default parameters allow named parameters to be initialized with default values if no value or <code>undefined</code> is passed.</p>
+    <pre><code class="language-javascript">function greet(name = "Guest") {
+    return "Hello, " + name + "!";
+}
+console.log(greet()); // Outputs: Hello, Guest!</code></pre>
+
+    <h3>6. Rest Parameters</h3>
+    <p>Rest parameters allow a function to accept an indefinite number of arguments as an array.</p>
+    <pre><code class="language-javascript">function sum(...numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(sum(1, 2, 3, 4)); // Outputs: 10</code></pre>
+
+    <h3>7. Anonymous Functions</h3>
+    <p>Anonymous functions are functions without a name, often used as arguments to other functions.</p>
+    <pre><code class="language-javascript">setTimeout(function() {
+    console.log("This is an anonymous function.");
+}, 1000);</code></pre>
+
+    <h3>8. Immediately Invoked Function Expressions (IIFE)</h3>
+    <p>An IIFE is a function that runs as soon as it is defined.</p>
+    <pre><code class="language-javascript">(function() {
+    console.log("This is an IIFE.");
+})();</code></pre>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+</body>
+</html>

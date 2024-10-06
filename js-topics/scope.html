@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Scope</h1><br>
+    <p>Scope in JavaScript refers to the context in which variables and functions are accessible. It determines the
+        visibility and lifetime of these variables and functions.</p>
+
+    <h2>Types of Scope</h2>
+    <ul>
+        <li><strong>Global Scope</strong>: Variables declared outside any function are in the global scope and can be
+            accessed from anywhere in the code.</li>
+        <li><strong>Function Scope</strong>: Variables declared within a function are in the function scope and can only
+            be accessed within that function.</li>
+        <li><strong>Block Scope</strong>: Variables declared with <code>let</code> or <code>const</code> within a block
+            (e.g., inside curly braces <code>{}</code>) are in the block scope and can only be accessed within that
+            block.</li>
+    </ul>
+
+    <h2>Global Scope</h2>
+    <p>Variables declared outside any function have global scope:</p>
+    <pre><code class="language-javascript">let globalVar = "I am global";
+
+function showGlobalVar() {
+    console.log(globalVar); // Accessible here
+}
+
+showGlobalVar();
+console.log(globalVar); // Accessible here too</code></pre>
+
+    <h2>Function Scope</h2>
+    <p>Variables declared within a function have function scope:</p>
+    <pre><code class="language-javascript">function myFunction() {
+    let functionVar = "I am local to this function";
+    console.log(functionVar); // Accessible here
+}
+
+myFunction();
+console.log(functionVar); // Error: functionVar is not defined</code></pre>
+
+    <h2>Block Scope</h2>
+    <p>Variables declared with <code>let</code> or <code>const</code> within a block have block scope:</p>
+    <pre><code class="language-javascript">{
+    let blockVar = "I am block scoped";
+    console.log(blockVar); // Accessible here
+}
+
+console.log(blockVar); // Error: blockVar is not defined</code></pre>
+
+    <h2>Scope Chain</h2>
+    <p>JavaScript uses a scope chain to resolve variable references. If a variable is not found in the current scope,
+        JavaScript looks up the scope chain to find it.</p>
+    <pre><code class="language-javascript">let outerVar = "I am outside";
+
+function outerFunction() {
+    let innerVar = "I am inside";
+    
+    function innerFunction() {
+        console.log(outerVar); // Accessible here
+        console.log(innerVar); // Accessible here
+    }
+    
+    innerFunction();
+}
+
+outerFunction();</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_scope.asp">W3Schools</a> and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Scope">MDN Web Docs</a>.
+    </p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

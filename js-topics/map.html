@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MyCLass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Map Object</h1><br>
+    <p>The <code>Map</code> object in JavaScript holds key-value pairs and remembers the original insertion order of the
+        keys. Any value (both objects and primitive values) may be used as either a key or a value.</p>
+
+    <h3>1. Creating a Map</h3>
+    <p>You can create a map using the <code>Map</code> constructor:</p>
+    <pre><code class="language-javascript">const map = new Map([
+    ['key1', 'value1'],
+    ['key2', 'value2'],
+    ['key3', 'value3']
+]);
+console.log(map); // Outputs: Map(3) { 'key1' => 'value1', 'key2' => 'value2', 'key3' => 'value3' }</code></pre>
+
+    <h3>2. Adding and Deleting Elements</h3>
+    <p>You can add and delete elements from a map using the <code>set()</code> and <code>delete()</code> methods:</p>
+    <pre><code class="language-javascript">const map = new Map();
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+console.log(map); // Outputs: Map(2) { 'key1' => 'value1', 'key2' => 'value2' }
+
+map.delete('key1');
+console.log(map); // Outputs: Map(1) { 'key2' => 'value2' }</code></pre>
+
+    <h3>3. Checking for Elements</h3>
+    <p>You can check if a map contains a specific key using the <code>has()</code> method:</p>
+    <pre><code class="language-javascript">const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+console.log(map.has('key1')); // Outputs: true
+console.log(map.has('key3')); // Outputs: false</code></pre>
+
+    <h3>4. Getting Values</h3>
+    <p>You can get the value associated with a specific key using the <code>get()</code> method:</p>
+    <pre><code class="language-javascript">const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+console.log(map.get('key1')); // Outputs: 'value1'
+console.log(map.get('key3')); // Outputs: undefined</code></pre>
+
+    <h3>5. Iterating Over a Map</h3>
+    <p>You can iterate over the elements of a map using the <code>for...of</code> loop:</p>
+    <pre><code class="language-javascript">const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+for (let [key, value] of map) {
+    console.log(key + ': ' + value);
+}
+// Outputs: 
+// key1: value1
+// key2: value2</code></pre>
+
+    <h3>6. Converting a Map to an Array</h3>
+    <p>You can convert a map to an array using the <code>Array.from()</code> method or the spread operator:</p>
+    <pre><code class="language-javascript">const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+const array = Array.from(map);
+console.log(array); // Outputs: [['key1', 'value1'], ['key2', 'value2']]
+
+const array2 = [...map];
+console.log(array2); // Outputs: [['key1', 'value1'], ['key2', 'value2']]</code></pre>
+
+    <h3>7. Map Operations</h3>
+    <p>Maps support various operations like clearing all elements and getting the size of the map:</p>
+    <pre><code class="language-javascript">const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+
+// Size
+console.log(map.size); // Outputs: 2
+
+// Clear
+map.clear();
+console.log(map); // Outputs: Map(0) {}</code></pre>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

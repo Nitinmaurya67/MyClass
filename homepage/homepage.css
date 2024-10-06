@@ -1,0 +1,214 @@
+/* -------header section----------- */
+.herosection {
+  background-color: #dff1ff55;
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 70px;
+   /* box-shadow: 0 3px 5px rgb(0 0 0 / 0.1); */
+}
+
+.hero-image {
+  height: 250px;
+}
+
+#navBttom {
+  /* height: 140px;  */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-text,
+.right-text {
+  position: absolute;
+  font-family: cursive;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bottom-text {
+  position: absolute;
+  font-family: cursive;
+  top: 90%;
+  transform: translateY(-50%);
+  color: #4f1d00;
+}
+
+.left-text {
+  left: 20px;
+  font-size: 15px;
+  width: 250px;
+  color: #243178;
+}
+
+.right-text {
+  right: 60px;
+
+  font-size: 13px;
+}
+.bottom-text {
+  bottom: 0px;
+  padding: 10px 10px;
+  color: #243178;
+}
+
+.btn-container {
+  position: relative;
+  text-align: center;
+  color: #b39ddb;
+}
+.btn-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #db5538;
+  font-size: 18px;
+}
+.left-text a .btn-text:hover {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  color: #004151;
+}
+
+
+/* --------main---------- */
+main {
+  margin-top: 150px;
+}
+
+.featureDivContainer {
+  margin: 20px auto;
+  height: 100%;
+  width: auto;
+  /* background-color: #db5538; */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+.feature {
+  font-size: 15px;
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+  /* border:1px solid #91a1a783; */
+  background-color: #dff1ff55;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 0.2);
+}
+.feature:hover {
+  border: 1px solid #c3b9d6;
+}
+.featureImage img {
+  margin-top: 7px;
+  height: 100px;
+  width: 100px;
+}
+
+/* --------footer---------- */
+
+.footer-div {
+  background-color: #b39ddb6e;
+  height: 120px;
+  color: rgb(109, 57, 110);
+  width: 98.75vw;
+  font-size: 13px;
+}
+
+#footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  font-size: large;
+  margin: 0px;
+  font-family: cursive;
+  border-bottom: 1px solid #ffffff65;
+}
+#footer-mid {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(115, 78, 116);
+}
+a:hover {
+  text-decoration: none;
+  color: #0a3c59;
+}
+
+
+
+/* Resposivness */
+@media screen and (max-width: 720px) {
+    /* ----------header--------- */
+  .hero-image {
+    height: 190px;
+  }
+  .herosection {
+    height: 200px;
+  }
+  .right-text {
+    right: 30px;
+    font-size: 10px;
+  }
+  .left-text {
+    font-size: 10px;
+    left: 7px;
+    width: 100px;
+  }
+  .bottom-text {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .btn-container img {
+    position: relative;
+    left: -12px;
+    height: 1.8rem;
+    
+  }
+  .btn-text {
+    width: 100%;
+    font-size: 12px;
+    margin-top: -2px;
+  }
+  .left-text a .btn-text:hover {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  color: #004151;
+}
+/* ------------main------------ */
+.feature {
+  font-size: 15px;
+  height: 150px;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row; 
+}
+
+
+
+}

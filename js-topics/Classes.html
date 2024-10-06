@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Classes </h1><br>
+    <p>Classes in JavaScript are a blueprint for creating objects. They encapsulate data and behavior by defining
+        properties and methods, enabling object-oriented programming. Classes were introduced in ECMAScript 2015 (ES6).
+    </p>
+
+    <h2>Class Declaration</h2>
+    <p>You can define a class using the <code>class</code> keyword:</p>
+    <pre><code class="language-javascript">class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+const person1 = new Person("Alice", 30);
+console.log(person1.greet()); // Hello, my name is Alice and I am 30 years old.</code></pre>
+
+    <h2>Class Expression</h2>
+    <p>Classes can also be defined using class expressions:</p>
+    <pre><code class="language-javascript">const Person = class {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+};
+
+const person2 = new Person("Bob", 25);
+console.log(person2.greet()); // Hello, my name is Bob and I am 25 years old.</code></pre>
+
+    <h2>Inheritance</h2>
+    <p>Classes can inherit from other classes using the <code>extends</code> keyword:</p>
+    <pre><code class="language-javascript">class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        return `${this.name} makes a noise.`;
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        return `${this.name} barks.`;
+    }
+}
+
+const dog = new Dog("Rex");
+console.log(dog.speak()); // Rex barks.</code></pre>
+
+    <h2>Static Methods</h2>
+    <p>Static methods are defined on the class itself, not on instances of the class:</p>
+    <pre><code class="language-javascript">class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+}
+
+console.log(MathUtil.add(5, 3)); // 8</code></pre>
+
+    <h2>Getters and Setters</h2>
+    <p>Getters and setters allow you to define methods that get and set the value of an object's properties:</p>
+    <pre><code class="language-javascript">class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    get area() {
+        return this.width * this.height;
+    }
+
+    set area(value) {
+        this.width = Math.sqrt(value);
+        this.height = Math.sqrt(value);
+    }
+}
+
+const rect = new Rectangle(4, 5);
+console.log(rect.area); // 20
+rect.area = 25;
+console.log(rect.width); // 5
+console.log(rect.height); // 5</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">MDN Web Docs</a>[^1^][2]
+        and <a href="https://www.w3schools.com/Js/js_classes.asp">W3Schools</a>[^2^][1].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

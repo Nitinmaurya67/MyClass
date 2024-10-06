@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Modules </h1><br>
+    <p>JavaScript modules allow you to break up your code into separate files, making it easier to maintain and
+        organize. Modules are imported from external files with the <code>import</code> statement and exported using the
+        <code>export</code> statement.</p>
+
+    <h2>Exporting Modules</h2>
+    <p>There are two types of exports: named exports and default exports.</p>
+
+    <h3>Named Exports</h3>
+    <p>Named exports allow you to export multiple values. You can create named exports in two ways:</p>
+    <pre><code class="language-javascript">// In-line individually
+export const name = "John";
+export const age = 30;
+
+// All at once at the bottom
+const name = "John";
+const age = 30;
+export { name, age };</code></pre>
+
+    <h3>Default Exports</h3>
+    <p>Default exports allow you to export a single value or to have a fallback value for your module:</p>
+    <pre><code class="language-javascript">const message = () => {
+    return "Hello, World!";
+};
+export default message;</code></pre>
+
+    <h2>Importing Modules</h2>
+    <p>You can import modules into a file in two ways, based on whether they are named exports or default exports.</p>
+
+    <h3>Importing Named Exports</h3>
+    <pre><code class="language-javascript">import { name, age } from './person.js';</code></pre>
+
+    <h3>Importing Default Exports</h3>
+    <pre><code class="language-javascript">import message from './message.js';</code></pre>
+
+    <h2>Example</h2>
+    <p>Here is an example demonstrating how to use modules:</p>
+    <pre><code class="language-javascript">// person.js
+export const name = "John";
+export const age = 30;
+
+// message.js
+const message = () => {
+    return `Hello, my name is ${name} and I am ${age} years old.`;
+};
+export default message;
+
+// main.js
+import { name, age } from './person.js';
+import message from './message.js';
+
+console.log(name); // John
+console.log(age); // 30
+console.log(message()); // Hello, my name is John and I am 30 years old.</code></pre>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_modules.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">MDN Web Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>
