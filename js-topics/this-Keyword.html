@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>this Keyword</h1><br>
+    <p>The <code>this</code> keyword in JavaScript refers to the object that is currently executing a function or
+        method. Its value is determined by how a function is called, not where it is defined.</p>
+
+    <h2>Global Context</h2>
+    <p>In the global context, <code>this</code> refers to the global object (window in browsers).</p>
+    <pre><code class="language-javascript">console.log(this); // Window object (in browsers)</code></pre>
+    <button onclick="sendCode(this)">Go </button>
+
+    <h2>Function Context</h2>
+    <p>In a regular function, <code>this</code> refers to the global object (non-strict mode) or <code>undefined</code>
+        (strict mode).</p>
+    <pre><code class="language-javascript">function myFunction() {
+    console.log(this);
+}
+myFunction(); // Window object (non-strict mode) or undefined (strict mode)</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Method Context</h2>
+    <p>When a function is called as a method of an object, <code>this</code> refers to the object.</p>
+    <pre><code class="language-javascript">const person = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+console.log(person.fullName()); // John Doe</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Event Handlers</h2>
+    <p>In event handlers, <code>this</code> refers to the element that received the event.</p>
+    <pre><code class="language-javascript">document.getElementById("myButton").addEventListener("click", function() {
+    console.log(this); // The button element
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Arrow Functions</h2>
+    <p>Arrow functions do not have their own <code>this</code> binding. They inherit <code>this</code> from the parent
+        scope at the time they are defined.</p>
+    <pre><code class="language-javascript">const obj = {
+    value: 42,
+    regularFunction: function() {
+        console.log(this.value); // 42
+    },
+    arrowFunction: () => {
+        console.log(this.value); // undefined
+    }
+};
+obj.regularFunction();
+obj.arrowFunction();</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Explicit Binding</h2>
+    <p>You can explicitly set the value of <code>this</code> using <code>call()</code>, <code>apply()</code>, and
+        <code>bind()</code> methods.</p>
+    <pre><code class="language-javascript">function greet() {
+    return "Hello, " + this.name;
+}
+const person1 = { name: "Alice" };
+const person2 = { name: "Bob" };
+
+console.log(greet.call(person1)); // Hello, Alice
+console.log(greet.apply(person2)); // Hello, Bob
+
+const greetPerson1 = greet.bind(person1);
+console.log(greetPerson1()); // Hello, Alice</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_this.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN Web
+            Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

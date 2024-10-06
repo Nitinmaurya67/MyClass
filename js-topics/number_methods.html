@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Number Methods</h1><br>
+    <p>JavaScript provides several methods to work with numbers. These methods can be used to convert, format, and
+        manipulate numbers.</p>
+
+    <h3>1. toString()</h3>
+    <p>The <code>toString()</code> method converts a number to a string.</p>
+    <pre><code class="language-javascript">let num = 123;
+console.log(num.toString()); // Outputs: "123"</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. toExponential()</h3>
+    <p>The <code>toExponential()</code> method converts a number to exponential notation.</p>
+    <pre><code class="language-javascript">let num = 9.656;
+console.log(num.toExponential(2)); // Outputs: "9.66e+0"</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. toFixed()</h3>
+    <p>The <code>toFixed()</code> method formats a number using fixed-point notation.</p>
+    <pre><code class="language-javascript">let num = 9.656;
+console.log(num.toFixed(2)); // Outputs: "9.66"</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. toPrecision()</h3>
+    <p>The <code>toPrecision()</code> method formats a number to a specified length.</p>
+    <pre><code class="language-javascript">let num = 9.656;
+console.log(num.toPrecision(2)); // Outputs: "9.7"</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>5. valueOf()</h3>
+    <p>The <code>valueOf()</code> method returns the primitive value of a number.</p>
+    <pre><code class="language-javascript">let num = 123;
+console.log(num.valueOf()); // Outputs: 123</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>6. Number()</h3>
+    <p>The <code>Number()</code> function converts a value to a number.</p>
+    <pre><code class="language-javascript">console.log(Number("123")); // Outputs: 123
+console.log(Number("123.45")); // Outputs: 123.45</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>7. parseFloat()</h3>
+    <p>The <code>parseFloat()</code> function parses a string and returns a floating point number.</p>
+    <pre><code class="language-javascript">console.log(parseFloat("123.45")); // Outputs: 123.45</code></pre>
+    <button onclick="sendCode(this)">Go </button>
+
+    <h3>8. parseInt()</h3>
+    <p>The <code>parseInt()</code> function parses a string and returns an integer.</p>
+    <pre><code class="language-javascript">console.log(parseInt("123.45")); // Outputs: 123</code></pre>
+    <button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

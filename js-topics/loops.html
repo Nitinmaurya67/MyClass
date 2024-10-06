@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Loops</h1><br>
+    <p>Loops in JavaScript are used to repeatedly execute a block of code as long as a specified condition is true.
+        JavaScript supports several types of loops.</p>
+
+    <h3>1. for Loop</h3>
+    <p>The <code>for</code> loop is used to run a block of code a specified number of times:</p>
+    <pre><code class="language-javascript">for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+// Outputs: 0 1 2 3 4</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. while Loop</h3>
+    <p>The <code>while</code> loop runs a block of code as long as the specified condition is true:</p>
+    <pre><code class="language-javascript">let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+// Outputs: 0 1 2 3 4</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. do...while Loop</h3>
+    <p>The <code>do...while</code> loop runs a block of code once, before checking if the condition is true, then it
+        repeats the loop as long as the condition is true:</p>
+    <pre><code class="language-javascript">let i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 5);
+// Outputs: 0 1 2 3 4</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. for...in Loop</h3>
+    <p>The <code>for...in</code> loop iterates over the enumerable properties of an object:</p>
+    <pre><code class="language-javascript">const person = {name: "John", age: 30, city: "New York"};
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}
+// Outputs: 
+// name: John
+// age: 30
+// city: New York</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>5. for...of Loop</h3>
+    <p>The <code>for...of</code> loop iterates over the values of an iterable object (like an array):</p>
+    <pre><code class="language-javascript">const array = [1, 2, 3, 4, 5];
+for (let value of array) {
+    console.log(value);
+}
+// Outputs: 1 2 3 4 5</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>6. break and continue</h3>
+    <p>The <code>break</code> statement exits the loop immediately, and the <code>continue</code> statement skips the
+        current iteration and proceeds to the next iteration:</p>
+    <pre><code class="language-javascript">for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        break; // Exits the loop when i is 3
+    }
+    console.log(i);
+}
+// Outputs: 0 1 2
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        continue; // Skips the iteration when i is 3
+    }
+    console.log(i);
+}
+// Outputs: 0 1 2 4</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

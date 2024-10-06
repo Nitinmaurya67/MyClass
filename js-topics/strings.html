@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Strings</h1><br>
+    <p>Strings in JavaScript are used to store and manipulate text. They are a sequence of characters enclosed in single
+        quotes, double quotes, or backticks.</p>
+
+    <h3>1. Creating Strings</h3>
+    <p>Strings can be created using single quotes, double quotes, or backticks (template literals):</p>
+    <pre><code class="language-javascript">let singleQuoteString = 'Hello, World!';
+let doubleQuoteString = "Hello, World!";
+let templateLiteralString = `Hello, World!`;</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. String Length</h3>
+    <p>The <code>length</code> property returns the length of a string:</p>
+    <pre><code class="language-javascript">let text = "Hello, World!";
+console.log(text.length); // Outputs: 13</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. Escape Characters</h3>
+    <p>Escape characters are used to include special characters in a string:</p>
+    <pre><code class="language-javascript">let text = "He said, \"Hello!\"";
+let singleQuote = 'It\'s a beautiful day!';
+let backslash = "This is a backslash: \\";</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. String Methods</h3>
+    <p>Javascript strings are primitive and immutable: All string methods produce a new string without altering the original
+    string. <br>
+    JavaScript provides various methods to work with strings:</p>
+    <ul>
+        <li><strong>charAt():</strong> Returns the character at a specified index.</li>
+        <li><strong>concat():</strong> Joins two or more strings.</li>
+        <li><strong>includes():</strong> Checks if a string contains a specified value.</li>
+        <li><strong>indexOf():</strong> Returns the index of the first occurrence of a specified value.</li>
+        <li><strong>slice():</strong> Extracts a part of a string and returns it as a new string.</li>
+        <li><strong>toLowerCase():</strong> Converts a string to lowercase letters.</li>
+        <li><strong>toUpperCase():</strong> Converts a string to uppercase letters.</li>
+        <li><strong>trim():</strong> Removes whitespace from both ends of a string.</li>
+        <li><a href="stringMethod.html">learn more..</a></li>
+    </ul>
+    <pre><code class="language-javascript">let text = "Hello, World!";
+console.log(text.charAt(0)); // Outputs: H
+console.log(text.concat(" How are you?")); // Outputs: Hello, World! How are you?
+console.log(text.includes("World")); // Outputs: true
+console.log(text.indexOf("World")); // Outputs: 7
+console.log(text.slice(0, 5)); // Outputs: Hello
+console.log(text.toLowerCase()); // Outputs: hello, world!
+console.log(text.toUpperCase()); // Outputs: HELLO, WORLD!
+console.log(text.trim()); // Outputs: Hello, World!</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>5. Template Literals</h3>
+    <p>Template literals allow for embedded expressions and multi-line strings:</p>
+    <pre><code class="language-javascript">let name = "Alice";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // Outputs: Hello, Alice!
+
+let multiLineString = `This is a string
+that spans multiple
+lines.`;
+console.log(multiLineString);</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

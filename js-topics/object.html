@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MyClass</title>
+    <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
+    <link rel="stylesheet" href="object.css">
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h1>OBJECT</h1><br>
+    <p>In JavaScript, an object is a standalone entity, with properties and type. Objects are used to store collections
+        of data and more complex entities. They are a fundamental part of JavaScript and are essential for creating
+        dynamic and interactive web applications.</p>
+
+    <h2>Creating Objects</h2>
+    <h3>Object Literals</h3>
+    <p>One of the simplest ways to create an object is using an object literal:</p>
+    <pre><code class="language-javascript">const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    job: 'Developer'
+};</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Using the <code>new Object()</code> Syntax</h3>
+    <p>You can also create an object using the <code>new Object()</code> syntax:</p>
+    <pre><code class="language-javascript">const person = new Object();
+person.firstName = 'John';
+person.lastName = 'Doe';
+person.age = 30;
+person.job = 'Developer';</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Constructor Functions</h3>
+    <p>Constructor functions are used to create multiple objects of the same type:</p>
+    <pre><code class="language-javascript">function Person(firstName, lastName, age, job) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.job = job;
+}
+
+const person1 = new Person('John', 'Doe', 30, 'Developer');
+const person2 = new Person('Jane', 'Smith', 25, 'Designer');</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Properties and Methods</h2>
+    <p>Objects can have properties and methods. Properties are values associated with an object, and methods are
+        functions that belong to an object.</p>
+    <h3>Accessing Properties</h3>
+    <p>You can access object properties using dot notation or bracket notation:</p>
+    <pre><code class="language-javascript">console.log(person.firstName); // Dot notation
+console.log(person['lastName']); // Bracket notation</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Adding and Modifying Properties</h3>
+    <p>You can add or modify properties directly:</p>
+    <pre><code class="language-javascript">person.firstName = 'Michael';
+person['lastName'] = 'Johnson';</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Methods</h3>
+    <p>Methods are functions stored as object properties:</p>
+    <pre><code class="language-javascript">const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    job: 'Developer',
+    fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+    }
+};
+
+console.log(person.fullName());</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Object Prototypes</h2>
+    <p>All JavaScript objects inherit properties and methods from a prototype. The prototype is also an object.</p>
+    <h3>Prototype Inheritance</h3>
+    <p>JavaScript objects inherit from the <code>Object.prototype</code>:</p>
+    <pre><code class="language-javascript">function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+Person.prototype.fullName = function() {
+    return this.firstName + ' ' + this.lastName;
+};
+
+const person1 = new Person('John', 'Doe');
+console.log(person1.fullName());</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Advanced Topics</h2>
+    <h3>Shallow and Deep Copy</h3>
+    <p>Copying objects can be tricky. A shallow copy copies property values, but a deep copy copies nested objects as
+        well:</p>
+    <pre><code class="language-javascript">// Shallow copy
+const personCopy = Object.assign({}, person);
+
+// Deep copy
+const personDeepCopy = JSON.parse(JSON.stringify(person));</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Object Destructuring</h3>
+    <p>Destructuring allows you to unpack values from arrays or properties from objects into distinct variables:</p>
+    <pre><code class="language-javascript">const { firstName, lastName } = person;
+console.log(firstName, lastName);</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>Object Methods</h3>
+    <p>JavaScript provides several built-in methods for objects:</p>
+    <ul>
+        <li><code>Object.keys(obj)</code>: Returns an array of a given object's property names.</li>
+        <li><code>Object.values(obj)</code>: Returns an array of a given object's property values.</li>
+        <li><code>Object.entries(obj)</code>: Returns an array of a given object's own enumerable string-keyed property
+            [key, value] pairs.</li>
+    </ul>
+    <pre><code class="language-javascript">const keys = Object.keys(person);
+const values = Object.values(person);
+const entries = Object.entries(person);
+
+console.log(keys);
+console.log(values);
+console.log(entries);</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Resources for Further Learning</h2>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects">MDN Web Docs on
+                Working with Objects</a> - Comprehensive documentation on JavaScript objects.</li>
+        <li><a href="https://www.digitalocean.com/community/tutorials/understanding-objects-in-javascript">DigitalOcean's
+                Guide on Understanding Objects in JavaScript</a> - A detailed tutorial on JavaScript objects.</li>
+        <li><a href="https://www.tutorialsteacher.com/javascript/javascript-object-in-depth">TutorialsTeacher's
+                JavaScript Objects in Depth</a> - An in-depth guide on JavaScript objects.</li>
+    </ul>
+
+    <!-- Include Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

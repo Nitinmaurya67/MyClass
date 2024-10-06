@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>DOM </h1><br>
+    <p>The HTML DOM (Document Object Model) is a programming interface for HTML and XML documents. It represents the
+        page so that programs can change the document structure, style, and content. The DOM represents the document as
+        nodes and objects, allowing programming languages to interact with the page.</p>
+
+    <h2>DOM Tree Structure</h2>
+    <p>The DOM represents HTML as a tree structure of tags. Here’s a simple example:</p>
+
+    <p>This HTML document can be visualized as the following DOM tree:</p>
+    <img src="https://textbooks.cs.ksu.edu/cc120/images/3.8.1.png" alt="DOM Tree" />
+
+    <h2>Accessing DOM Elements</h2>
+    <p>You can access HTML elements using various methods:</p>
+    <pre><code class="language-javascript">        // By ID
+        let element = document.getElementById("myElement");
+        
+        // By Class Name
+        let elements = document.getElementsByClassName("myClass");
+        
+        // By Tag Name
+        let elements = document.getElementsByTagName("div");
+        
+        // By CSS Selector
+        let element = document.querySelector(".myClass");
+        let elements = document.querySelectorAll(".myClass");</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+
+    <h2>Accessing Elements</h2>
+    <p>You can access HTML elements using various methods:</p>
+    <ul>
+        <li><code>document.getElementById(id)</code>: Selects an element by its ID.</li>
+        <li><code>document.getElementsByClassName(class)</code>: Selects elements by their class name.</li>
+        <li><code>document.getElementsByTagName(tag)</code>: Selects elements by their tag name.</li>
+        <li><code>document.querySelector(selector)</code>: Selects the first element that matches a CSS selector.</li>
+        <li><code>document.querySelectorAll(selector)</code>: Selects all elements that match a CSS selector.</li>
+    </ul>
+    <pre><code class="language-javascript">let element = document.getElementById("myElement");
+let elements = document.getElementsByClassName("myClass");
+let tags = document.getElementsByTagName("div");
+let firstElement = document.querySelector(".myClass");
+let allElements = document.querySelectorAll(".myClass");</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Manipulating Elements</h2>
+    <p>You can manipulate HTML elements using various properties and methods:</p>
+    <ul>
+        <li><code>element.innerHTML</code>: Gets or sets the HTML content of an element.</li>
+        <li><code>element.textContent</code>: Gets or sets the text content of an element.</li>
+        <li><code>element.style</code>: Gets or sets the inline style of an element.</li>
+        <li><code>element.setAttribute(name, value)</code>: Sets an attribute on an element.</li>
+        <li><code>element.getAttribute(name)</code>: Gets the value of an attribute on an element.</li>
+        <li><code>element.removeAttribute(name)</code>: Removes an attribute from an element.</li>
+    </ul>
+    <pre><code class="language-javascript">let element = document.getElementById("myElement");
+element.innerHTML = "Hello, World!";
+element.style.color = "blue";
+element.setAttribute("data-custom", "value");
+let attrValue = element.getAttribute("data-custom");
+element.removeAttribute("data-custom");</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Event Handling</h2>
+    <p>You can handle events using various methods:</p>
+    <ul>
+        <li><code>element.addEventListener(event, function)</code>: Adds an event listener to an element.</li>
+        <li><code>element.removeEventListener(event, function)</code>: Removes an event listener from an element.</li>
+    </ul>
+    <pre><code class="language-javascript">let button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+    alert("Button clicked!");
+});
+
+button.removeEventListener("click", function() {
+    alert("Button clicked!");
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+
+
+    <h2>Example</h2>
+    <p>Here is an example demonstrating the use of the HTML DOM in JavaScript:</p>
+    <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", function() {
+    let element = document.getElementById("myElement");
+    element.innerHTML = "Hello, World!";
+    element.style.color = "blue";
+
+    let button = document.getElementById("myButton");
+    button.addEventListener("click", function() {
+        element.style.color = "red";
+    });
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+
+    <h2>Example with Child Elements</h2>
+    <p>Here is an example demonstrating how to access and manipulate child elements:</p>
+    <pre><code class="language-javascript">// HTML CODE                               
+// &lt;div id="parent"&gt;
+//      &lt;div class="child"&gt;Child 1&lt;/div&gt;
+//      &lt;div class="child"&gt;Child 2&lt;/div&gt;
+// &lt;/div&gt
+let parent = document.getElementById("parent");
+let children = parent.getElementsByClassName("child");
+
+// Changing content of the first child
+children[0].innerHTML = "Updated Child 1";
+
+// Adding a new child
+let newChild = document.createElement("div");
+newChild.className = "child";
+newChild.innerHTML = "Child 3";
+parent.appendChild(newChild);
+
+// Removing the second child
+parent.removeChild(children[1]);</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_htmldom.asp">W3Schools</a>[^1^][1] and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">MDN Web Docs</a>[^2^][2].</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyClass</title>
+    <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
+    <link rel="stylesheet" href="object.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+
+    </head>
+    
+    <body>
+        <h1>LOCALSTORAGE</h1><br>
+        <p>The <code>localStorage</code> object allows you to save key-value pairs in a web browser with no expiration date.
+            This means the data stored persists even after the user closes the browser or restarts the computer.</p>
+    
+        <h2>What is localStorage?</h2>
+        <p><code>localStorage</code> is a part of the Web Storage API that provides a way to store data in the browser.
+            Unlike cookies, the storage limit is much larger (around 5-10MB) and the data is not sent to the server with
+            every HTTP request.</p>
+    
+        <h2>Basic Operations : </h2>
+        <h3>Storing Data</h3>
+        <p>To store data in <code>localStorage</code>, use the <code>setItem</code> method:</p>
+        <pre><code class="language-javascript">localStorage.setItem('key', 'value');</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+    
+        <h3>Retrieving Data</h3>
+        <p>To retrieve data from <code>localStorage</code>, use the <code>getItem</code> method:</p>
+        <pre><code class="language-javascript">const value = localStorage.getItem('key');</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+    
+        <h3>Removing Data</h3>
+        <p>To remove a specific item from <code>localStorage</code>, use the <code>removeItem</code> method:</p>
+        <pre><code class="language-javascript">localStorage.removeItem('key');</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+    
+        <h3>Clearing All Data</h3>
+        <p>To clear all data from <code>localStorage</code>, use the <code>clear</code> method:</p>
+        <pre><code class="language-javascript">localStorage.clear();</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+    
+        <h2>Storing Complex Data :</h2>
+        <p><code>localStorage</code> can only store strings. To store objects or arrays, you need to convert them to a
+            string using <code>JSON.stringify</code>:</p>
+        <pre><code class="language-javascript">const user = { name: 'John', age: 30 };
+    localStorage.setItem('user', JSON.stringify(user));</code></pre>
+    <button onclick="sendCode(this)">Go </button>
+        <p>To retrieve and parse the data back into an object:</p>
+        <pre><code class="language-javascript">const user = JSON.parse(localStorage.getItem('user'));</code></pre>
+        <button onclick="sendCode(this)">Go </button>
+    
+        <h2>Use Cases</h2>
+        <ul>
+            <li><strong>User Preferences</strong>: Store user settings like theme, language, etc.</li>
+            <li><strong>Form Data</strong>: Save form data to prevent loss on page reload.</li>
+            <li><strong>Session Management</strong>: Keep user session data for logged-in users.</li>
+        </ul>
+    
+        <h2>Limitations</h2>
+        <ul>
+            <li><strong>Storage Limit</strong>: Typically around 5-10MB per domain.</li>
+            <li><strong>Security</strong>: Data is accessible to any script on the page, so avoid storing sensitive
+                information.</li>
+            <li><strong>Browser Support</strong>: Most modern browsers support <code>localStorage</code>, but always check
+                compatibility.</li>
+        </ul>
+    
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Always check for <code>localStorage</code> support before using it:</li>
+            <pre><code class="language-javascript">if (typeof(Storage) !== 'undefined') {
+        // Code for localStorage
+    } else {
+        // No web storage support
+    }</code></pre>
+    <button onclick="sendCode(this)">Go </button>
+            <li>Use try-catch blocks to handle potential errors.</li>
+            <li>Regularly clean up unused data to avoid storage bloat.</li>
+        </ul>
+    
+        <h2>Resources for Further Learning</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">MDN Web Docs on
+                    localStorage</a> - Comprehensive documentation on localStorage.</li>
+            <li><a href="https://www.freecodecamp.org/news/use-local-storage-in-modern-applications/">freeCodeCamp's Guide
+                    on Using localStorage</a> - A beginner-friendly guide to using localStorage.</li>
+            <li><a href="https://blog.logrocket.com/localstorage-javascript-complete-guide/">LogRocket's Complete Guide to
+                    localStorage</a> - An in-depth guide on localStorage.</li>
+        </ul>
+    
+        <!-- Include Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+        <script>
+            function sendCode(button) {
+                const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+                const encodedCode = encodeURIComponent(codeBlock);
+                window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+            }
+        </script>
+    </body>
+    
+    </html>

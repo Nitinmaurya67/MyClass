@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Operator Precedence </h1><br>
+    <p>Operator precedence determines the order in which operators are evaluated in expressions. Operators with higher
+        precedence are evaluated before operators with lower precedence.</p>
+
+    <h2>Operator Precedence Table</h2>
+    <p>Here is a table of JavaScript operators listed in order of precedence (from highest to lowest):</p>
+    <ol>
+        <li><strong>Grouping</strong>: <code>()</code></li>
+        <li><strong>Member Access</strong>: <code>obj.property</code></li>
+        <li><strong>Function Call</strong>: <code>myFunction()</code></li>
+        <li><strong>New</strong>: <code>new</code></li>
+        <li><strong>Postfix Increment/Decrement</strong>: <code>++ --</code></li>
+        <li><strong>Logical NOT</strong>: <code>!</code></li>
+        <li><strong>Bitwise NOT</strong>: <code>~</code></li>
+        <li><strong>Unary Plus/Minus</strong>: <code>+ -</code></li>
+        <li><strong>Multiplication/Division/Modulus</strong>: <code>* / %</code></li>
+        <li><strong>Addition/Subtraction</strong>: <code>+ -</code></li>
+        <li><strong>Bitwise Shift</strong>: <code><< >> >>></code></li>
+        <li><strong>Relational</strong>: <code>< > <= >=</code></li>
+        <li><strong>Equality</strong>: <code>== != === !==</code></li>
+        <li><strong>Bitwise AND</strong>: <code>&</code></li>
+        <li><strong>Bitwise XOR</strong>: <code>^</code></li>
+        <li><strong>Bitwise OR</strong>: <code>|</code></li>
+        <li><strong>Logical AND</strong>: <code>&&</code></li>
+        <li><strong>Logical OR</strong>: <code>||</code></li>
+        <li><strong>Conditional (Ternary)</strong>: <code>? :</code></li>
+        <li><strong>Assignment</strong>: <code>= += -= *= /= %= &= ^= |= <<= >>= >>>=</code></li>
+        <li><strong>Comma</strong>: <code>,</code></li>
+    </ol>
+
+    <h2>Examples</h2>
+    <p>Here are some examples demonstrating operator precedence in JavaScript:</p>
+    <pre><code class="language-javascript">console.log(3 + 4 * 2); // 11 (Multiplication before addition)
+console.log((3 + 4) * 2); // 14 (Grouping changes the order)
+console.log(10 > 5 && 5 < 3); // false (Relational before logical AND)
+console.log(10 > (5 && 5 < 3)); // true (Grouping changes the order)</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence">MDN
+            Web Docs</a> and <a href="https://www.w3schools.com/js/js_precedence.asp">W3Schools</a>.</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

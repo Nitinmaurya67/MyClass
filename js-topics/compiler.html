@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="object.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            min-height: 100px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            /* Preserve whitespace and line breaks */
+            overflow-x: auto;
+            /* Allow horizontal scrolling for long lines */
+        }
+
+        .error {
+            color: red;
+            /* Error messages in red */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Code Output</h2>
+    <div id="code-editor"></div>
+    <button id="run-button">Run</button>
+    <div class="output" id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script>
+    // Assuming HTML contains:
+    // <div id="code-editor"></div>
+    // <button id="run-button">Run</button>
+    // <div id="output"></div>
+
+    const params = new URLSearchParams(window.location.search);
+    const code = decodeURIComponent(params.get('code'));
+
+    const editor = CodeMirror(document.getElementById("code-editor"), {
+        lineNumbers: true,
+        mode: "javascript",
+        theme: "default",
+        viewportMargin: Infinity,
+        value: code
+    });
+
+    document.getElementById("run-button").addEventListener("click", runCode);
+
+    function runCode() {
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = ''; // Clear previous output
+        let output = '';
+
+        // Override console.log to capture output
+        const originalLog = console.log;
+        console.log = function (message) {
+            output += (typeof message === 'object')
+                ? JSON.stringify(message, null, 2) + '\n'
+                : message + '\n';
+            displayOutput(output);
+        };
+
+        // Override console.error to capture errors
+        const originalError = console.error;
+        console.error = function (message) {
+            output += `<span class="error">Error: ${message}</span>\n`;
+            displayOutput(output);
+        };
+
+        try {
+            eval(editor.getValue());
+        } catch (error) {
+            output += `<span class="error">Error: ${error.message}</span>\n`;
+            displayOutput(output);
+        } finally {
+            console.log = originalLog;
+            console.error = originalError;
+        }
+    }
+
+    function displayOutput(output) {
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `<pre>${output}</pre>`;
+    }
+
+    </script>
+</body>
+
+</html>

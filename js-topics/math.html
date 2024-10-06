@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Math Object</h1><br>
+    <p>The JavaScript <code>Math</code> object allows you to perform mathematical tasks on numbers. It is a built-in
+        object that has properties and methods for mathematical constants and functions.</p>
+
+    <h3>1. Math Properties (Constants)</h3>
+    <p>JavaScript provides several mathematical constants that can be accessed as properties of the <code>Math</code>
+        object:</p>
+    <pre><code class="language-javascript">console.log(Math.PI); // Outputs: 3.141592653589793
+console.log(Math.E); // Outputs: 2.718281828459045
+console.log(Math.SQRT2); // Outputs: 1.4142135623730951
+console.log(Math.SQRT1_2); // Outputs: 0.7071067811865476
+console.log(Math.LN2); // Outputs: 0.6931471805599453
+console.log(Math.LN10); // Outputs: 2.302585092994046
+console.log(Math.LOG2E); // Outputs: 1.4426950408889634
+console.log(Math.LOG10E); // Outputs: 0.4342944819032518</code></pre>
+
+    <h3>2. Math Methods</h3>
+    <p>JavaScript provides various methods to perform mathematical operations:</p>
+    <ul>
+        <li><strong>Math.abs(x):</strong> Returns the absolute value of x.</li>
+        <li><strong>Math.ceil(x):</strong> Returns x rounded up to the nearest integer.</li>
+        <li><strong>Math.floor(x):</strong> Returns x rounded down to the nearest integer.</li>
+        <li><strong>Math.round(x):</strong> Returns x rounded to the nearest integer.</li>
+        <li><strong>Math.trunc(x):</strong> Returns the integer part of x.</li>
+        <li><strong>Math.max(x, y, ...):</strong> Returns the largest of zero or more numbers.</li>
+        <li><strong>Math.min(x, y, ...):</strong> Returns the smallest of zero or more numbers.</li>
+        <li><strong>Math.pow(x, y):</strong> Returns x raised to the power of y.</li>
+        <li><strong>Math.sqrt(x):</strong> Returns the square root of x.</li>
+        <li><strong>Math.cbrt(x):</strong> Returns the cube root of x.</li>
+        <li><strong>Math.exp(x):</strong> Returns e<sup>x</sup>, where e is Euler's number.</li>
+        <li><strong>Math.log(x):</strong> Returns the natural logarithm (base e) of x.</li>
+        <li><strong>Math.log10(x):</strong> Returns the base-10 logarithm of x.</li>
+        <li><strong>Math.log2(x):</strong> Returns the base-2 logarithm of x.</li>
+        <li><strong>Math.sin(x):</strong> Returns the sine of x (x is in radians).</li>
+        <li><strong>Math.cos(x):</strong> Returns the cosine of x (x is in radians).</li>
+        <li><strong>Math.tan(x):</strong> Returns the tangent of x (x is in radians).</li>
+    </ul>
+    <pre><code class="language-javascript">console.log(Math.abs(-5)); // Outputs: 5
+console.log(Math.ceil(4.2)); // Outputs: 5
+console.log(Math.floor(4.8)); // Outputs: 4
+console.log(Math.round(4.5)); // Outputs: 5
+console.log(Math.trunc(4.9)); // Outputs: 4
+console.log(Math.max(1, 2, 3)); // Outputs: 3
+console.log(Math.min(1, 2, 3)); // Outputs: 1
+console.log(Math.pow(2, 3)); // Outputs: 8
+console.log(Math.sqrt(16)); // Outputs: 4
+console.log(Math.cbrt(27)); // Outputs: 3
+console.log(Math.exp(1)); // Outputs: 2.718281828459045
+console.log(Math.log(1)); // Outputs: 0
+console.log(Math.log10(100)); // Outputs: 2
+console.log(Math.log2(8)); // Outputs: 3
+console.log(Math.sin(Math.PI / 2)); // Outputs: 1
+console.log(Math.cos(0)); // Outputs: 1
+console.log(Math.tan(Math.PI / 4)); // Outputs: 1</code></pre>
+
+    <h3>3. Random Numbers</h3>
+    <p>The <code>Math.random()</code> method returns a pseudo-random number between 0 (inclusive) and 1 (exclusive):</p>
+    <pre><code class="language-javascript">console.log(Math.random()); // Outputs a random number between 0 and 1</code></pre>
+
+    <h3>4. Rounding Methods</h3>
+    <p>JavaScript provides several methods to round numbers:</p>
+    <ul>
+        <li><strong>Math.round(x):</strong> Rounds x to the nearest integer.</li>
+        <li><strong>Math.ceil(x):</strong> Rounds x up to the nearest integer.</li>
+        <li><strong>Math.floor(x):</strong> Rounds x down to the nearest integer.</li>
+        <li><strong>Math.trunc(x):</strong> Returns the integer part of x.</li>
+    </ul>
+    <pre><code class="language-javascript">console.log(Math.round(4.5)); // Outputs: 5
+console.log(Math.ceil(4.2)); // Outputs: 5
+console.log(Math.floor(4.8)); // Outputs: 4
+console.log(Math.trunc(4.9)); // Outputs: 4</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

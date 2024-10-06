@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Destructuring </h1><br>
+    <p>Destructuring is a special syntax in JavaScript that allows you to unpack values from arrays or properties from
+        objects into distinct variables. It makes your code more readable and concise.</p>
+
+    <h2>Array Destructuring</h2>
+    <p>You can extract values from arrays and assign them to variables:</p>
+    <pre><code class="language-javascript">const numbers = [1, 2, 3];
+const [one, two, three] = numbers;
+console.log(one); // 1
+console.log(two); // 2
+console.log(three); // 3</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Object Destructuring</h2>
+    <p>You can extract properties from objects and assign them to variables:</p>
+    <pre><code class="language-javascript">const person = { firstName: "John", lastName: "Doe" };
+const { firstName, lastName } = person;
+console.log(firstName); // John
+console.log(lastName); // Doe</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Default Values</h2>
+    <p>You can assign default values to variables if the unpacked value is <code>undefined</code>:</p>
+    <pre><code class="language-javascript">const { a = 10, b = 5 } = { a: 3 };
+console.log(a); // 3
+console.log(b); // 5</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Nested Destructuring</h2>
+    <p>You can destructure nested objects and arrays:</p>
+    <pre><code class="language-javascript">const person = {
+    name: "John",
+    address: {
+        city: "New York",
+        zip: "10001"
+    }
+};
+const { name, address: { city, zip } } = person;
+console.log(name); // John
+console.log(city); // New York
+console.log(zip); // 10001</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Rest in Destructuring</h2>
+    <p>You can use the rest syntax to collect the remaining properties or elements:</p>
+    <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers;
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4, 5]</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN
+            Web Docs</a> and <a href="https://www.w3schools.com/js/js_destructuring.asp">W3Schools</a>.</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <!-- Include Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Type Conversion </h1><br>
+    <p>Type conversion is the process of converting data from one type to another. JavaScript performs type conversion
+        in two ways: implicitly (automatic) and explicitly (manual).</p>
+
+    <h2>Implicit Conversion</h2>
+    <p>JavaScript automatically converts data types when necessary. This is known as implicit conversion or type
+        coercion.</p>
+    <pre><code class="language-javascript">console.log("5" - 3); // 2 (string "5" is converted to number 5)
+console.log("5" + 3); // "53" (number 3 is converted to string "3")</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Explicit Conversion</h2>
+    <p>Explicit conversion is when you manually convert data from one type to another using built-in methods.</p>
+
+    <h3>1. String to Number</h3>
+    <pre><code class="language-javascript">let num = Number("123"); // 123
+let floatNum = parseFloat("3.14"); // 3.14
+let intNum = parseInt("42"); // 42</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. Number to String</h3>
+    <pre><code class="language-javascript">let str = String(123); // "123"
+let str2 = (456).toString(); // "456"</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. Boolean Conversion</h3>
+    <pre><code class="language-javascript">let bool1 = Boolean(1); // true
+let bool2 = Boolean(0); // false
+let bool3 = Boolean("hello"); // true
+let bool4 = Boolean(""); // false</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h2>Examples</h2>
+    <p>Here are some examples of type conversion in JavaScript:</p>
+    <pre><code class="language-javascript">console.log(Number("123")); // 123
+console.log(String(123)); // "123"
+console.log(Boolean(0)); // false
+console.log(Boolean("")); // false
+console.log(Boolean("hello")); // true</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <p>For more detailed information, you can check out resources like <a
+            href="https://www.w3schools.com/js/js_type_conversion.asp">W3Schools</a> and <a
+            href="https://javascript.info/type-conversions">JavaScript.info</a>.</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

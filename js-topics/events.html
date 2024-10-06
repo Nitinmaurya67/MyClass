@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Events</h1><br>
+    <p>JavaScript events are actions or occurrences that happen in the browser. They can be triggered by user
+        interactions or by the browser itself.</p>
+
+    <h3>1. Common Events</h3>
+    <p>Here are some common events in JavaScript:</p>
+    <ul>
+        <li><strong>onclick:</strong> Triggered when an element is clicked.</li>
+        <li><strong>onmouseover:</strong> Triggered when the mouse pointer is moved onto an element.</li>
+        <li><strong>onmouseout:</strong> Triggered when the mouse pointer is moved out of an element.</li>
+        <li><strong>onkeydown:</strong> Triggered when a key is pressed down.</li>
+        <li><strong>onload:</strong> Triggered when the browser finishes loading the page.</li>
+    </ul>
+
+    <h3>2. Adding Event Listeners</h3>
+    <p>Event listeners can be added to elements to execute code when an event occurs.</p>
+    <pre><code class="language-javascript">document.getElementById("myButton").addEventListener("click", function() {
+    alert("Button was clicked!");
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. Removing Event Listeners</h3>
+    <p>Event listeners can also be removed from elements.</p>
+    <pre><code class="language-javascript">function myFunction() {
+    alert("Button was clicked!");
+}
+document.getElementById("myButton").addEventListener("click", myFunction);
+document.getElementById("myButton").removeEventListener("click", myFunction);</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. Event Object</h3>
+    <p>The event object contains information about the event that occurred.</p>
+    <pre><code class="language-javascript">document.getElementById("myButton").addEventListener("click", function(event) {
+    console.log("Event type: " + event.type);
+    console.log("Element ID: " + event.target.id);
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>5. Event Propagation</h3>
+    <p>Event propagation determines the order in which events are received by the target element and its ancestors.</p>
+    <ul>
+        <li><strong>Event Bubbling:</strong> The event is first captured and handled by the target element and then
+            propagated to its ancestors.</li>
+        <li><strong>Event Capturing:</strong> The event is first captured by the outermost ancestor and propagated to
+            the target element.</li>
+    </ul>
+    <pre><code class="language-javascript">document.getElementById("parent").addEventListener("click", function() {
+    alert("Parent clicked!");
+}, true); // Use true for capturing phase
+
+document.getElementById("child").addEventListener("click", function() {
+    alert("Child clicked!");
+}, false); // Use false for bubbling phase</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>6. Preventing Default Actions</h3>
+    <p>The <code>preventDefault()</code> method cancels the event if it is cancelable, meaning that the default action
+        that belongs to the event will not occur.</p>
+    <pre><code class="language-javascript">document.getElementById("myLink").addEventListener("click", function(event) {
+    event.preventDefault();
+    alert("Default action prevented!");
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>7. Stopping Event Propagation</h3>
+    <p>The <code>stopPropagation()</code> method prevents further propagation of the current event in the capturing and
+        bubbling phases.</p>
+    <pre><code class="language-javascript">document.getElementById("child").addEventListener("click", function(event) {
+    event.stopPropagation();
+    alert("Propagation stopped!");
+});</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

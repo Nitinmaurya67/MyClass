@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>switch Statement</h1><br>
+    <p>The <code>switch</code> statement is used to perform different actions based on different conditions. It is an
+        alternative to using multiple <code>if...else if...else</code> statements.</p>
+
+    <h3>1. Basic switch Statement</h3>
+    <p>Here is an example of a basic <code>switch</code> statement:</p>
+    <pre><code class="language-javascript">let day = 3;
+let dayName;
+
+switch (day) {
+    case 0:
+        dayName = "Sunday";
+        break;
+    case 1:
+        dayName = "Monday";
+        break;
+    case 2:
+        dayName = "Tuesday";
+        break;
+    case 3:
+        dayName = "Wednesday";
+        break;
+    case 4:
+        dayName = "Thursday";
+        break;
+    case 5:
+        dayName = "Friday";
+        break;
+    case 6:
+        dayName = "Saturday";
+        break;
+    default:
+        dayName = "Invalid day";
+}
+
+console.log(dayName); // Outputs: Wednesday</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. switch with Multiple Cases</h3>
+    <p>You can group multiple cases together if they should execute the same code:</p>
+    <pre><code class="language-javascript">let fruit = "apple";
+let color;
+
+switch (fruit) {
+    case "apple":
+    case "cherry":
+        color = "red";
+        break;
+    case "banana":
+        color = "yellow";
+        break;
+    case "grape":
+        color = "purple";
+        break;
+    default:
+        color = "unknown";
+}
+
+console.log(color); // Outputs: red</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. switch with Expressions</h3>
+    <p>The <code>switch</code> statement can also use expressions in the cases:</p>
+    <pre><code class="language-javascript">let score = 85;
+let grade;
+
+switch (true) {
+    case score >= 90:
+        grade = "A";
+        break;
+    case score >= 80:
+        grade = "B";
+        break;
+    case score >= 70:
+        grade = "C";
+        break;
+    case score >= 60:
+        grade = "D";
+        break;
+    default:
+        grade = "F";
+}
+
+console.log(grade); // Outputs: B</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. switch without break</h3>
+    <p>If the <code>break</code> statement is omitted, the next case will be executed regardless of the case value:</p>
+    <pre><code class="language-javascript">let number = 1;
+
+switch (number) {
+    case 1:
+        console.log("One");
+    case 2:
+        console.log("Two");
+    case 3:
+        console.log("Three");
+        break;
+    default:
+        console.log("Invalid number");
+}
+
+// Outputs:
+// One
+// Two
+// Three</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>

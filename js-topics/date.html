@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="object.css">
+</head>
+
+<body>
+    <h1>Dates</h1><br>
+    <p>JavaScript provides the <code>Date</code> object to work with dates and times. The <code>Date</code> object is
+        used to create, manipulate, and format dates and times.</p>
+
+    <h3>1. Creating Dates</h3>
+    <p>Dates can be created using the <code>Date</code> constructor:</p>
+    <pre><code class="language-javascript">const now = new Date(); // Current date and time
+const specificDate = new Date('2024-09-27'); // Specific date
+const dateTime = new Date('2024-09-27T14:00:00'); // Specific date and time
+const timestamp = new Date(1632740400000); // Date from timestamp</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>2. Getting Date and Time Components</h3>
+    <p>The <code>Date</code> object provides methods to get various components of a date and time:</p>
+    <pre><code class="language-javascript">const now = new Date();
+console.log(now.getFullYear()); // Outputs: 2024
+console.log(now.getMonth()); // Outputs: 8 (September, as months are zero-indexed)
+console.log(now.getDate()); // Outputs: 27
+console.log(now.getHours()); // Outputs: 14
+console.log(now.getMinutes()); // Outputs: 0
+console.log(now.getSeconds()); // Outputs: 0
+console.log(now.getMilliseconds()); // Outputs: 0
+console.log(now.getDay()); // Outputs: 5 (Friday, as days are zero-indexed starting from Sunday)</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>3. Setting Date and Time Components</h3>
+    <p>The <code>Date</code> object provides methods to set various components of a date and time:</p>
+    <pre><code class="language-javascript">const now = new Date();
+now.setFullYear(2025);
+now.setMonth(0); // January
+now.setDate(1);
+now.setHours(12);
+now.setMinutes(30);
+now.setSeconds(45);
+console.log(now); // Outputs: 2025-01-01T07:00:45.000Z (depending on your time zone)</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>4. Formatting Dates</h3>
+    <p>JavaScript provides methods to format dates as strings:</p>
+    <pre><code class="language-javascript">const now = new Date();
+console.log(now.toDateString()); // Outputs: Fri Sep 27 2024
+console.log(now.toTimeString()); // Outputs: 14:00:00 GMT+0530 (India Standard Time)
+console.log(now.toLocaleDateString()); // Outputs: 27/09/2024 (depending on locale)
+console.log(now.toLocaleTimeString()); // Outputs: 14:00:00 (depending on locale)
+console.log(now.toISOString()); // Outputs: 2024-09-27T08:30:00.000Z</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <h3>5. Date Arithmetic</h3>
+    <p>JavaScript allows you to perform arithmetic operations on dates:</p>
+    <pre><code class="language-javascript">const now = new Date();
+const tomorrow = new Date(now);
+tomorrow.setDate(now.getDate() + 1);
+console.log(tomorrow); // Outputs: 2024-09-28T14:00:00.000Z (depending on your time zone)
+
+const nextWeek = new Date(now);
+nextWeek.setDate(now.getDate() + 7);
+console.log(nextWeek); // Outputs: 2024-10-04T14:00:00.000Z (depending on your time zone)</code></pre>
+<button onclick="sendCode(this)">Go </button>
+
+    <br><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <script>
+        function sendCode(button) {
+            const codeBlock = button.previousElementSibling.innerText; // Get code from the previous <code> block
+            const encodedCode = encodeURIComponent(codeBlock);
+            window.open(`compiler.html?code=${encodedCode}`, '_blank'); // Open compiler page with code
+        }
+    </script>
+</body>
+
+</html>
